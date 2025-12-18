@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>VTrack | SFO Dashboard</title>
+  <title>VTrack – SFO Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Styles -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -20,56 +20,67 @@
 
 <body>
 
-<!-- SPLASH -->
+<!-- SPLASH SCREEN -->
 <div id="splashScreen">
-  <img src="https://i.imgur.com/DTZFTNl.png" alt="VTrack Logo" />
+  <img src="https://i.imgur.com/DTZFTNl.png" alt="VTrack Logo">
   <p>A Student Monitoring and Reporting Tool</p>
 </div>
 
 <!-- HEADER -->
-<header>
-  <h1>VTrack</h1>
-  <nav>
+<header class="main-header">
+  <div class="header-left">
+    <h1>VTrack</h1>
+  </div>
+  <div class="header-right">
     <button id="settingsBtn">Settings</button>
     <button id="headerLogin">Login</button>
-  </nav>
+  </div>
 </header>
 
-<!-- WELCOME -->
+<!-- WELCOME SCREEN -->
 <section id="welcomeScreen" class="active">
-  <h2>Welcome to VTrack</h2>
-  <button id="startBtn">Start</button>
+  <div class="center-card">
+    <h2>Welcome to VTrack</h2>
+    <p>Student Violation Tracking System</p>
+    <button id="startBtn">Start</button>
+  </div>
 </section>
 
-<!-- LOGIN -->
+<!-- LOGIN SCREEN -->
 <section id="loginScreen">
-  <h2>Login</h2>
-  <input id="loginEmail" placeholder="Email" />
-  <input id="loginPassword" type="password" placeholder="Password" />
-  <button id="loginBtn">Login</button>
-  <p id="forgotPasswordBtn">Forgot password?</p>
+  <div class="center-card">
+    <h2>Login</h2>
+    <input id="loginEmail" type="email" placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <p id="forgotPasswordBtn">Forgot password?</p>
+  </div>
 </section>
 
-<!-- DASHBOARD -->
+<!-- SFO DASHBOARD -->
 <section id="sfoDashboard">
-  <h2>SFO Dashboard</h2>
-
-  <div class="dashboard-actions">
-    <button id="createAccountBtn">Create Account</button>
-    <button id="addStudentBtn">Add Student</button>
-    <button id="logoutBtn">Logout</button>
+  <div class="dashboard-header">
+    <h2>SFO Dashboard</h2>
+    <div class="dashboard-actions">
+      <button id="createAccountBtn">Create Account</button>
+      <button id="addStudentBtn">Add Student</button>
+      <button id="logoutBtn">Logout</button>
+    </div>
   </div>
 
-  <input id="sectionSearch" placeholder="Search section..." />
+  <input id="sectionSearch" placeholder="Search section...">
 
-  <div id="sectionsContainer"></div>
+  <div id="sectionsContainer" class="section-grid"></div>
 </section>
 
 <!-- STUDENT LIST -->
 <section id="studentListScreen">
   <button id="backToSectionsBtn">← Back</button>
+
   <h2 id="studentListTitle"></h2>
-  <input id="studentSearch" placeholder="Search student..." />
+
+  <input id="studentSearch" placeholder="Search student...">
+
   <table>
     <thead>
       <tr>
@@ -84,9 +95,7 @@
   </table>
 </section>
 
-<!-- MODALS WILL BE INJECTED BY JS -->
-
-<!-- Scripts -->
+<!-- SCRIPTS (DO NOT CHANGE ORDER) -->
 <script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/email.js"></script>
 <script type="module" src="js/auth.js"></script>
@@ -98,3 +107,4 @@
 
 </body>
 </html>
+
