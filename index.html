@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VTrack | SFO Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="splashScreen">
+  <img src="https://i.imgur.com/DTZFTNl.png" alt="VTrack Logo" />
+  <p>A Student Monitoring and Reporting Tool</p>
+</div>
+
+<!-- HEADER -->
+<header>
+  <h1>VTrack</h1>
+  <nav>
+    <button id="settingsBtn">Settings</button>
+    <button id="headerLogin">Login</button>
+  </nav>
+</header>
+
+<!-- WELCOME -->
+<section id="welcomeScreen" class="active">
+  <h2>Welcome to VTrack</h2>
+  <button id="startBtn">Start</button>
+</section>
+
+<!-- LOGIN -->
+<section id="loginScreen">
+  <h2>Login</h2>
+  <input id="loginEmail" placeholder="Email" />
+  <input id="loginPassword" type="password" placeholder="Password" />
+  <button id="loginBtn">Login</button>
+  <p id="forgotPasswordBtn">Forgot password?</p>
+</section>
+
+<!-- DASHBOARD -->
+<section id="sfoDashboard">
+  <h2>SFO Dashboard</h2>
+
+  <div class="dashboard-actions">
+    <button id="createAccountBtn">Create Account</button>
+    <button id="addStudentBtn">Add Student</button>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <input id="sectionSearch" placeholder="Search section..." />
+
+  <div id="sectionsContainer"></div>
+</section>
+
+<!-- STUDENT LIST -->
+<section id="studentListScreen">
+  <button id="backToSectionsBtn">← Back</button>
+  <h2 id="studentListTitle"></h2>
+  <input id="studentSearch" placeholder="Search student..." />
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Grade</th>
+        <th>Section</th>
+        <th>Parent Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="studentTable"></tbody>
+  </table>
+</section>
+
+<!-- MODALS WILL BE INJECTED BY JS -->
+
+<!-- Scripts -->
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/email.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/students.js"></script>
+<script type="module" src="js/violations.js"></script>
+<script type="module" src="js/export.js"></script>
+<script type="module" src="js/analytics.js"></script>
+<script type="module" src="js/ui.js"></script>
+
+</body>
+</html>
