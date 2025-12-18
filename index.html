@@ -59,20 +59,35 @@
 
 <!-- SFO DASHBOARD -->
 <section id="sfoDashboard">
-  <div class="dashboard-header">
-    <h2>SFO Dashboard</h2>
+  <div class="dashboard-card">
+
+    <h2 class="dashboard-title">SFO Dashboard</h2>
+
     <div class="dashboard-actions">
       <button id="createAccountBtn">Create Account</button>
       <button id="addStudentBtn">Add Student</button>
       <button id="logoutBtn">Logout</button>
     </div>
+
+    <input id="sectionSearch" placeholder="Search section..." class="dashboard-input">
+
+    <div class="dashboard-selects">
+      <select>
+        <option>Select Grade</option>
+      </select>
+      <select>
+        <option>Select Section</option>
+      </select>
+    </div>
+
+    <div class="section-list-card">
+      <h3>Section List</h3>
+
+      <div id="sectionsContainer" class="section-grid"></div>
+    </div>
+
   </div>
-
-  <input id="sectionSearch" placeholder="Search section...">
-
-  <div id="sectionsContainer" class="section-grid"></div>
 </section>
-
 <!-- STUDENT LIST -->
 <section id="studentListScreen">
   <button id="backToSectionsBtn">← Back</button>
