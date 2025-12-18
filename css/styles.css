@@ -1,228 +1,260 @@
-/* ===============================
+/* =========================
    GLOBAL RESET
-================================ */
+========================= */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: #f4f6f9;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
   color: #333;
-  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 18px;
-  font-weight: 600;
-}
-
-input {
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 12px;
-  width: 100%;
-}
-
-/* ===============================
-   SPLASH SCREEN
-================================ */
+/* =========================
+   SPLASH SCREEN (ORIGINAL)
+========================= */
 #splashScreen {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   background: #000;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 999999999;
 }
 
 #splashScreen img {
-  width: 200px;
-  margin-bottom: 15px;
+  max-width: 75%;
+  max-height: 75%;
+  animation: pulse 1.8s infinite ease-in-out;
 }
 
-#splashScreen p {
-  color: white;
-  font-weight: 600;
-  letter-spacing: 1px;
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-/* ===============================
-   HEADER
-================================ */
+/* =========================
+   HEADER (ORIGINAL)
+========================= */
 .main-header {
-  background: #7a0c0c;
-  color: white;
-  padding: 18px 40px;
+  background-color: #800000;
+  color: #FFF4E6;
+  padding: 25px 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .main-header h1 {
-  font-size: 1.9em;
-  letter-spacing: 1px;
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: 700;
 }
 
 .header-right button {
+  color: #FFF4E6;
   background: transparent;
-  color: white;
-  border: 2px solid white;
-  margin-left: 10px;
+  border: none;
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 1.05em;
+  cursor: pointer;
+  position: relative;
 }
 
-.header-right button:hover {
-  background: white;
-  color: #7a0c0c;
+.header-right button::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #FFF4E6;
+  transition: 0.3s;
 }
 
-/* ===============================
-   SECTIONS (GENERAL)
-================================ */
+.header-right button:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   SECTION VISIBILITY
+========================= */
 section {
   display: none;
-  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 60px 20px;
+  transition: opacity 0.3s ease;
 }
 
 section.active {
-  display: block;
+  display: flex;
+  opacity: 1;
 }
 
-/* ===============================
-   CENTER CARDS (WELCOME & LOGIN)
-================================ */
+/* =========================
+   HERO / WELCOME CARD
+========================= */
 .center-card {
-  max-width: 420px;
-  margin: 80px auto;
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  background-color: #800000;
+  color: #FFF4E6;
   text-align: center;
+  border-radius: 30px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  padding: 100px 90px;
+  width: 85%;
+  max-width: 1000px;
 }
 
 .center-card h2 {
-  margin-bottom: 10px;
-}
-
-.center-card p {
-  margin-bottom: 20px;
-  color: #666;
-}
-
-.center-card button {
-  width: 100%;
-  background: #7a0c0c;
-  color: white;
-  font-size: 1em;
-}
-
-/* ===============================
-   LOGIN
-================================ */
-#loginScreen input {
-  margin-bottom: 12px;
-}
-
-#forgotPasswordBtn {
-  margin-top: 12px;
-  color: #7a0c0c;
-  cursor: pointer;
-  font-size: 0.9em;
-}
-
-/* ===============================
-   DASHBOARD
-================================ */
-#sfoDashboard {
-  max-width: 1300px;
-  margin: auto;
-}
-
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.dashboard-actions button {
-  background: #7a0c0c;
-  color: white;
-  margin-left: 10px;
-}
-
-#sectionSearch {
-  max-width: 350px;
+  font-size: 4em;
   margin-bottom: 25px;
 }
 
-/* ===============================
-   SECTION CARDS
-================================ */
+.center-card p {
+  font-size: 1.6em;
+  margin-bottom: 60px;
+}
+
+.center-card button {
+  background-color: #FFF4E6;
+  color: #800000;
+  border: none;
+  padding: 22px 0;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.5em;
+  cursor: pointer;
+  width: 75%;
+  max-width: 450px;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.center-card button:hover {
+  background-color: #800000;
+  color: #FFF4E6;
+  border: 2px solid #FFF4E6;
+  transform: scale(1.05);
+}
+
+/* =========================
+   LOGIN
+========================= */
+#loginScreen input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: 2px solid #800000;
+  border-radius: 12px;
+  font-size: 1em;
+  text-align: center;
+}
+
+#loginBtn {
+  margin-top: 20px;
+}
+
+#forgotPasswordBtn {
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+#sfoDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-header {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-actions button {
+  background: white;
+  color: #800000;
+  padding: 12px 28px;
+  border: 2px solid #800000;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.dashboard-actions button:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.05);
+}
+
+/* =========================
+   SECTIONS
+========================= */
 .section-grid {
+  width: 100%;
+  max-width: 1300px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 18px;
 }
 
 .section-card {
-  background: white;
-  border: 2px solid #7a0c0c;
-  border-radius: 16px;
-  padding: 25px;
+  border: 2px solid #800000;
+  border-radius: 10px;
+  padding: 18px;
+  font-size: 1.05em;
   text-align: center;
-  font-weight: 700;
-  color: #7a0c0c;
-  transition: 0.2s ease;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .section-card:hover {
-  background: #7a0c0c;
+  background-color: #a00000;
   color: white;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* ===============================
+/* =========================
    STUDENT LIST
-================================ */
+========================= */
 #studentListScreen {
+  width: 100%;
   max-width: 1300px;
   margin: auto;
 }
 
-#backToSectionsBtn {
-  margin-bottom: 15px;
-  background: transparent;
-  border: 2px solid #7a0c0c;
-  color: #7a0c0c;
-}
-
-#studentSearch {
-  max-width: 350px;
-  margin-bottom: 15px;
-}
-
-/* ===============================
-   TABLE
-================================ */
 table {
   width: 100%;
   border-collapse: collapse;
   background: white;
-  border-radius: 16px;
-  overflow: hidden;
 }
 
 thead {
-  background: #7a0c0c;
+  background: #800000;
   color: white;
 }
 
@@ -235,14 +267,15 @@ tbody tr:nth-child(even) {
   background: #f2f2f2;
 }
 
-/* ===============================
+/* =========================
    ACTION BUTTONS
-================================ */
+========================= */
 .action-btn {
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
-  font-size: 0.85em;
-  margin: 2px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-report {
@@ -254,21 +287,20 @@ tbody tr:nth-child(even) {
   color: white;
 }
 
-/* ===============================
+/* =========================
    RESPONSIVE
-================================ */
-@media (max-width: 768px) {
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
+========================= */
+@media (max-width: 900px) {
+  .main-header {
+    padding: 15px 25px;
   }
 
-  .dashboard-actions {
-    margin-top: 10px;
+  .center-card {
+    padding: 60px 20px;
   }
 
-  section {
-    padding: 20px;
+  .center-card h2 {
+    font-size: 2.5em;
   }
 }
 
